@@ -4,13 +4,13 @@
              x:Class="JuegodelAhorcado.MainPage">
 
     <Grid RowDefinitions=".6* , .4*">
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="10">
             
             <Label FontAttributes="Bold"
                    HorizontalOptions="Center"
-                   Text="Errors: 0 of 6"/>
-            
-            <Image Source="img0.jpg"
+                   Text="{Binding GameStatus}"/>
+
+            <Image Source="{Binding CurrentImage}"
                    HeightRequest="200"/>
             
             <Label FontSize="40"
@@ -20,7 +20,7 @@
             
             <Label FontSize="Large"
                    HorizontalOptions="Center"
-                   Text="You Lost!!"/>
+                   Text="{Binding Message}"/>
             
             <Button HorizontalOptions="Center"
                     Text="Reset"
@@ -38,7 +38,8 @@
                 <DataTemplate>
                     <Button HeightRequest="50"
                     WidthRequest="50"
-                    Text="{Binding .}"/>
+                    Text="{Binding .}"
+                            Clicked="Button_Clicked"/>
                 </DataTemplate>
                 
             </BindableLayout.ItemTemplate>
