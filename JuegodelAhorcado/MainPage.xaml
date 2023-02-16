@@ -15,17 +15,35 @@
             
             <Label FontSize="40"
                    HorizontalOptions="Center"
-                   Text="_ _ _ _"
+                   Text="{Binding SpotLight}"
                    VerticalOptions="Center"/>
             
             <Label FontSize="Large"
                    HorizontalOptions="Center"
                    Text="You Lost!!"/>
+            
             <Button HorizontalOptions="Center"
                     Text="Reset"
-                    WidthRequest="100"/>
+                    WidthRequest="100"
+                    />
 
         </VerticalStackLayout>
+        
+        <FlexLayout Grid.Row="1"
+                    Wrap="Wrap"
+                    JustifyContent="SpaceEvenly"
+                    BindableLayout.ItemsSource="{Binding Letter}">
+            <BindableLayout.ItemTemplate>
+                
+                <DataTemplate>
+                    <Button HeightRequest="50"
+                    WidthRequest="50"
+                    Text="{Binding .}"/>
+                </DataTemplate>
+                
+            </BindableLayout.ItemTemplate>
+
+        </FlexLayout>
         
     </Grid>
 
