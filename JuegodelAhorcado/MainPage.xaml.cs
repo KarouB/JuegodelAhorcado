@@ -211,6 +211,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
         CalculateWord(answer, guessed);
         Message = "";
         UpdateStatus();
+        EnableLetters();
     }
 }
 
