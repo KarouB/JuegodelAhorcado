@@ -147,6 +147,31 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
         if (mistakes == maxWrong)
         {
             Message = "You lost!";
+            DisableLetters(); 
+        }
+    }
+
+    private void DisableLetters()
+    {
+        foreach (var children in LettersContainer.Children)
+        {
+            var btn = children as Button;
+            if (btn != null)
+            {
+                btn.IsEnabled = false;
+            }
+        }
+    }
+
+    private void EnableLetters()
+    {
+        foreach (var children in LettersContainer.Children)
+        {
+            var btn = children as Button;
+            if (btn != null)
+            {
+                btn.IsEnabled = true;
+            }
         }
     }
 
@@ -155,6 +180,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
         if (SpotLight.Replace(" ", "") == answer)
         {
             Message = "¡¡You win!!";
+            DisableLetters();
         }
     }
 
@@ -176,6 +202,15 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
         }
     }
 
-
+    private void Reset_Clicked(object sender, EventArgs e)
+    {
+        mistakes = 0;
+        guessed = new List<char>();
+        CurrentImage = "img0.jpg";
+        PickWord();
+        CalculateWord(answer, guessed);
+        Message = "";
+        UpdateStatus();
+    }
 }
 

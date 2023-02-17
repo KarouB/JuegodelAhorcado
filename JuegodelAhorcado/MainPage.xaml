@@ -25,11 +25,12 @@
             <Button HorizontalOptions="Center"
                     Text="Reset"
                     WidthRequest="100"
-                    />
+                    Clicked="Reset_Clicked"/>
 
         </VerticalStackLayout>
         
-        <FlexLayout Grid.Row="1"
+        <FlexLayout x:Name="LettersContainer"
+                    Grid.Row="1"
                     Wrap="Wrap"
                     JustifyContent="SpaceEvenly"
                     BindableLayout.ItemsSource="{Binding Letter}">
@@ -39,7 +40,7 @@
                     <Button HeightRequest="50"
                     WidthRequest="50"
                     Text="{Binding .}"
-                            Clicked="Button_Clicked"/>
+                    Clicked="Button_Clicked"/>
                 </DataTemplate>
                 
             </BindableLayout.ItemTemplate>
